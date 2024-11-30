@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.JpaShop;
 import com.b1a9idps.spring_data_jpa_and_jdbc.application.service.ShopService;
+import com.b1a9idps.spring_data_jpa_and_jdbc.presentation.dto.response.ShopResponse;
 
 @RestController
 @RequestMapping("/shops")
@@ -20,7 +20,7 @@ public class ShopController {
     }
 
     @GetMapping
-    public List<JpaShop> findAll() {
+    public List<ShopResponse> findAll() {
         return shopService.findAll();
     }
 }
