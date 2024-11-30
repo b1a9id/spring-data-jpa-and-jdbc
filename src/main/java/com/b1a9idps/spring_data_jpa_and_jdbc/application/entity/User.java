@@ -1,6 +1,6 @@
 package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
 
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 public class User {
     @Id
