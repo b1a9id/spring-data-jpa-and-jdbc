@@ -4,19 +4,19 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.Shop;
-import com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.ShopRepository;
+import com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.JpaShop;
+import com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.JpaShopRepository;
 
 @Service
 public class ShopService {
 
-    private final ShopRepository shopRepository;
+    private final JpaShopRepository jpaShopRepository;
 
-    public ShopService(ShopRepository shopRepository) {
-        this.shopRepository = shopRepository;
+    public ShopService(JpaShopRepository jpaShopRepository) {
+        this.jpaShopRepository = jpaShopRepository;
     }
 
-    public List<Shop> findAll() {
-        return shopRepository.findAll();
+    public List<JpaShop> findAll() {
+        return jpaShopRepository.findAll();
     }
 }

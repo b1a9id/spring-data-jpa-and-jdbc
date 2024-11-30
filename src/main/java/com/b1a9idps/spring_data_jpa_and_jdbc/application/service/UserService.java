@@ -5,19 +5,19 @@ import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.User;
-import com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.UserRepository;
+import com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.JdbcUser;
+import com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.JdbcUserRepository;
 
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final JdbcUserRepository jdbcUserRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserService(JdbcUserRepository jdbcUserRepository) {
+        this.jdbcUserRepository = jdbcUserRepository;
     }
 
-    public List<User> findAll() {
-        return userRepository.findAll(Sort.by("id"));
+    public List<JdbcUser> findAll() {
+        return jdbcUserRepository.findAll(Sort.by("id"));
     }
 }
