@@ -9,5 +9,6 @@ CREATE TABLE IF NOT EXISTS user
     id      INTEGER AUTO_INCREMENT PRIMARY KEY,
     name    VARCHAR(100) NOT NULL,
     age     INTEGER,
-    shop_id INTEGER
+    shop_id INTEGER,
+    FOREIGN KEY index_shop_id (shop_id) REFERENCES shop (id)
 );
