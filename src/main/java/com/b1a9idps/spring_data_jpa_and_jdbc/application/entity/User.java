@@ -4,7 +4,7 @@ package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String name;
 
@@ -12,11 +12,11 @@ public class User {
 
     private Integer shopId;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
