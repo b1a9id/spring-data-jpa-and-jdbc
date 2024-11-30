@@ -6,3 +6,7 @@ spring:
   jpa:
     open-in-view: false
     show-sql: true
+  sql:
+    init:
+      schema-locations: optional:classpath*:db/migration/schema.sql
+      mode: always
