@@ -1,7 +1,10 @@
 package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
+// JPAと共存する場合、 @Table がJDBCで扱うべきエンティティと判断される
+@Table("user")
 public class User {
     @Id
     private Integer id;
