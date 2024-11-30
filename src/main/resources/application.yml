@@ -10,8 +10,3 @@ spring:
     init:
       schema-locations: optional:classpath*:db/migration/schema.sql
       mode: always
-
-logging:
-  level:
-    org.springframework.jdbc: debug
-

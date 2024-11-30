@@ -1,10 +1,14 @@
 package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+@Entity
 @Table(name = "user")
 public class JpaUser {
     @Id
@@ -15,7 +19,9 @@ public class JpaUser {
 
     private Integer age;
 
-    private Integer shopId;
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private JpaShop shop;
 
     public Integer getId() {
         return id;
@@ -41,11 +47,11 @@ public class JpaUser {
         this.age = age;
     }
 
-    public Integer getShopId() {
-        return shopId;
+    public JpaShop getShop() {
+        return shop;
     }
 
-    public void setShopId(Integer shopId) {
-        this.shopId = shopId;
+    public void setShop(JpaShop shop) {
+        this.shop = shop;
     }
 }
