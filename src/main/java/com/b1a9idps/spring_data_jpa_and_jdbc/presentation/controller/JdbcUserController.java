@@ -21,6 +21,6 @@ public class JdbcUserController {
 
     @GetMapping
     public List<UserResponse> findAllJdbc() {
-        return List.of();
+        return userService.findAllJdbc();
     }
 }
