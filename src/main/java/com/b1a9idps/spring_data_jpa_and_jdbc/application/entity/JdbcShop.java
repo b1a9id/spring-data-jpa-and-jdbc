@@ -2,7 +2,10 @@ package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("shop")
@@ -12,8 +15,12 @@ public class JdbcShop {
 
     private String name;
 
+    @CreatedDate
+    @ReadOnlyProperty
     private LocalDateTime createdAt;
 
+    @LastModifiedDate
+    @ReadOnlyProperty
     private LocalDateTime updatedAt;
 
     public Integer getId() {

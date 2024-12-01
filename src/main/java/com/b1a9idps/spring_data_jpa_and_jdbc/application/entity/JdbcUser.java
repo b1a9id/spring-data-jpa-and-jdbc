@@ -5,6 +5,7 @@ import java.time.Instant;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.relational.core.mapping.Table;
 
 // JPAと共存する場合、 @Table がJDBCで扱うべきエンティティと判断される
@@ -20,9 +21,11 @@ public class JdbcUser {
     private Integer shopId;
 
     @CreatedDate
+    @ReadOnlyProperty
     private Instant createdAt;
 
     @LastModifiedDate
+    @ReadOnlyProperty
     private Instant updatedAt;
 
     public Integer getId() {
