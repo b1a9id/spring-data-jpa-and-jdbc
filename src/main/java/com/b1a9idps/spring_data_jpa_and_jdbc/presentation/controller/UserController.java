@@ -10,7 +10,7 @@ import com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.JdbcUser;
 import com.b1a9idps.spring_data_jpa_and_jdbc.application.service.UserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/users-jdbc")
 public class UserController {
 
     private final UserService userService;
@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<JdbcUser> findAll() {
-        return userService.findAll();
+    public List<JdbcUser> findAllJdbc() {
+        return userService.findAllJdbc();
     }
 }

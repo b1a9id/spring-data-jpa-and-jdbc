@@ -16,7 +16,7 @@ public class ShopService {
         this.jpaShopRepository = jpaShopRepository;
     }
 
-    public List<ShopResponse> findAll() {
+    public List<ShopResponse> findAllJpa() {
         return jpaShopRepository.findAll().stream()
                 .map(shop -> {
                     var users = shop.getUsers().stream()

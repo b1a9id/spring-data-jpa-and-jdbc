@@ -1,8 +1,10 @@
 package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.relational.core.mapping.Table;
 
 // JPAと共存する場合、 @Table がJDBCで扱うべきエンティティと判断される
@@ -17,9 +19,11 @@ public class JdbcUser {
 
     private Integer shopId;
 
-    private LocalDateTime createdAt;
+    @CreatedDate
+    private Instant createdAt;
 
-    private LocalDateTime updatedAt;
+    @LastModifiedDate
+    private Instant updatedAt;
 
     public Integer getId() {
         return id;
@@ -53,19 +57,19 @@ public class JdbcUser {
         this.shopId = shopId;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdatedAt() {
+    public Instant getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
+    public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

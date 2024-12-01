@@ -17,7 +17,7 @@ public class UserService {
         this.jdbcUserRepository = jdbcUserRepository;
     }
 
-    public List<JdbcUser> findAll() {
+    public List<JdbcUser> findAllJdbc() {
         return jdbcUserRepository.findAll(Sort.by("id"));
     }
 }

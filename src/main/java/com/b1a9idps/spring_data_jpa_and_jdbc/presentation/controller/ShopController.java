@@ -10,7 +10,7 @@ import com.b1a9idps.spring_data_jpa_and_jdbc.application.service.ShopService;
 import com.b1a9idps.spring_data_jpa_and_jdbc.presentation.dto.response.ShopResponse;
 
 @RestController
-@RequestMapping("/shops")
+@RequestMapping("/shops-jpa")
 public class ShopController {
 
     private final ShopService shopService;
@@ -20,7 +20,7 @@ public class ShopController {
     }
 
     @GetMapping
-    public List<ShopResponse> findAll() {
-        return shopService.findAll();
+    public List<ShopResponse> findAllJpa() {
+        return shopService.findAllJpa();
     }
 }
