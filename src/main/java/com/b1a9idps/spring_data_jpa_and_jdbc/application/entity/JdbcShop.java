@@ -1,11 +1,13 @@
 package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.ReadOnlyProperty;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("shop")
@@ -14,6 +16,9 @@ public class JdbcShop {
     private Integer id;
 
     private String name;
+
+    @MappedCollection(idColumn = "id")
+    private Set<JdbcUser> users;
 
     @CreatedDate
     @ReadOnlyProperty
@@ -37,6 +42,14 @@ public class JdbcShop {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<JdbcUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<JdbcUser> users) {
+        this.users = users;
     }
 
     public LocalDateTime getCreatedAt() {

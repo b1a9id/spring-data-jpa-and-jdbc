@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.ReadOnlyProperty;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
 // JPAと共存する場合、 @Table がJDBCで扱うべきエンティティと判断される
@@ -18,7 +19,8 @@ public class JdbcUser {
 
     private Integer age;
 
-    private Integer shopId;
+    @MappedCollection(idColumn = "id")
+    private JdbcShop shop;
 
     @CreatedDate
     @ReadOnlyProperty
@@ -52,12 +54,12 @@ public class JdbcUser {
         this.age = age;
     }
 
-    public Integer getShopId() {
-        return shopId;
+    public JdbcShop getShop() {
+        return shop;
     }
 
-    public void setShopId(Integer shopId) {
-        this.shopId = shopId;
+    public void setShop(JdbcShop shop) {
+        this.shop = shop;
     }
 
     public Instant getCreatedAt() {

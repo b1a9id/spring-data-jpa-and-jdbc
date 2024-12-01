@@ -14,3 +14,10 @@ spring:
     init:
       schema-locations: optional:classpath*:db/migration/schema.sql
       mode: always
+
+logging:
+  level:
+    # JDBCで発行されたクエリを出力
+    org.springframework.jdbc.core: debug
+    org.springframework.jdbc.core.JdbcTemplate: debug
+    org.springframework.jdbc.support: trace
