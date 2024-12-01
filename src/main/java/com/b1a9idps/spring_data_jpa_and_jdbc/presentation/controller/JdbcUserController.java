@@ -10,12 +10,12 @@ import com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.JdbcUser;
 import com.b1a9idps.spring_data_jpa_and_jdbc.application.service.UserService;
 
 @RestController
-@RequestMapping("/users-jdbc")
-public class UserController {
+@RequestMapping("/jdbc/users")
+public class JdbcUserController {
 
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    public JdbcUserController(UserService userService) {
         this.userService = userService;
     }
 
