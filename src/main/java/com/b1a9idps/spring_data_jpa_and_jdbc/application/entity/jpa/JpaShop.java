@@ -1,24 +1,30 @@
-package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
+package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.jpa;
 
 import java.time.Instant;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.ReadOnlyProperty;
-import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-// JPAと共存する場合、 @Table がJDBCで扱うべきエンティティと判断される
-@Table("user")
-public class JdbcUser {
+@Entity
+@Table(name = "shop")
+@EntityListeners(AuditingEntityListener.class)
+public class JpaShop {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
-
-    private Integer age;
-
-    private Integer shopId;
 
     @CreatedDate
     @ReadOnlyProperty
@@ -27,6 +33,9 @@ public class JdbcUser {
     @LastModifiedDate
     @ReadOnlyProperty
     private Instant updatedAt;
+
+    @OneToMany(mappedBy = "shop")
+    private List<JpaUser> users;
 
     public Integer getId() {
         return id;
@@ -44,22 +53,6 @@ public class JdbcUser {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Integer getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Integer shopId) {
-        this.shopId = shopId;
-    }
-
     public Instant getCreatedAt() {
         return createdAt;
     }
@@ -74,5 +67,13 @@ public class JdbcUser {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<JpaUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<JpaUser> users) {
+        this.users = users;
     }
 }

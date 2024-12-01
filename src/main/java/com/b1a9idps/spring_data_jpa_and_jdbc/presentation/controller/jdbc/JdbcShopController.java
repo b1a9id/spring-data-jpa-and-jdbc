@@ -1,4 +1,4 @@
-package com.b1a9idps.spring_data_jpa_and_jdbc.presentation.controller;
+package com.b1a9idps.spring_data_jpa_and_jdbc.presentation.controller.jdbc;
 
 import java.util.List;
 
@@ -10,17 +10,17 @@ import com.b1a9idps.spring_data_jpa_and_jdbc.application.service.ShopService;
 import com.b1a9idps.spring_data_jpa_and_jdbc.presentation.dto.response.ShopResponse;
 
 @RestController
-@RequestMapping("/jpa/shops")
-public class JpaShopController {
+@RequestMapping("/jdbc/shops")
+public class JdbcShopController {
 
     private final ShopService shopService;
 
-    public JpaShopController(ShopService shopService) {
+    public JdbcShopController(ShopService shopService) {
         this.shopService = shopService;
     }
 
     @GetMapping
-    public List<ShopResponse> findAllJpa() {
-        return shopService.findAllJpa();
+    public List<ShopResponse> findAllJdbc() {
+        return shopService.findAllJdbc();
     }
 }

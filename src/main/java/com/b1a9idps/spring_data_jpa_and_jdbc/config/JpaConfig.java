@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration(proxyBeanMethods = false)
 @EnableJpaRepositories(
         basePackages = {
-                "com.b1a9idps.spring_data_jpa_and_jdbc.application.repository"
+                "com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.jpa"
         }
 )
 @EnableJpaAuditing

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.JdbcShopRepository;
-import com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.JpaShopRepository;
+import com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.jdbc.JdbcShopRepository;
+import com.b1a9idps.spring_data_jpa_and_jdbc.application.repository.jpa.JpaShopRepository;
 import com.b1a9idps.spring_data_jpa_and_jdbc.presentation.dto.response.ShopResponse;
 
 @Service

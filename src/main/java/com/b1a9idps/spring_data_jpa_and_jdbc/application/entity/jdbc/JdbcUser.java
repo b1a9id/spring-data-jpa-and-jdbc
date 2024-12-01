@@ -1,33 +1,32 @@
-package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
+package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.jdbc;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.Instant;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.ReadOnlyProperty;
-import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("shop")
-public class JdbcShop {
+// JPAと共存する場合、 @Table がJDBCで扱うべきエンティティと判断される
+@Table("user")
+public class JdbcUser {
     @Id
     private Integer id;
 
     private String name;
 
-    // @MappedCollection はJOINしているわけでなく、JdbcUserの数だけクエリを発行する
-    @MappedCollection(idColumn = "shop_id", keyColumn = "shop_id")
-    private List<JdbcUser> users;
+    private Integer age;
+
+    private Integer shopId;
 
     @CreatedDate
     @ReadOnlyProperty
-    private LocalDateTime createdAt;
+    private Instant createdAt;
 
     @LastModifiedDate
     @ReadOnlyProperty
-    private LocalDateTime updatedAt;
+    private Instant updatedAt;
 
     public Integer getId() {
         return id;
@@ -45,27 +44,35 @@ public class JdbcShop {
         this.name = name;
     }
 
-    public List<JdbcUser> getUsers() {
-        return users;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setUsers(List<JdbcUser> users) {
-        this.users = users;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Integer getShopId() {
+        return shopId;
+    }
+
+    public void setShopId(Integer shopId) {
+        this.shopId = shopId;
+    }
+
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdatedAt() {
+    public Instant getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
+    public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

@@ -1,14 +1,14 @@
-package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
+package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity.jpa;
 
 import java.time.Instant;
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -17,14 +17,16 @@ import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "shop")
+@Table(name = "user")
 @EntityListeners(AuditingEntityListener.class)
-public class JpaShop {
+public class JpaUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
+
+    private Integer age;
 
     @CreatedDate
     @ReadOnlyProperty
@@ -34,8 +36,9 @@ public class JpaShop {
     @ReadOnlyProperty
     private Instant updatedAt;
 
-    @OneToMany(mappedBy = "shop")
-    private List<JpaUser> users;
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private JpaShop shop;
 
     public Integer getId() {
         return id;
@@ -51,6 +54,14 @@ public class JpaShop {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public Instant getCreatedAt() {
@@ -69,11 +80,11 @@ public class JpaShop {
         this.updatedAt = updatedAt;
     }
 
-    public List<JpaUser> getUsers() {
-        return users;
+    public JpaShop getShop() {
+        return shop;
     }
 
-    public void setUsers(List<JpaUser> users) {
-        this.users = users;
+    public void setShop(JpaShop shop) {
+        this.shop = shop;
     }
 }

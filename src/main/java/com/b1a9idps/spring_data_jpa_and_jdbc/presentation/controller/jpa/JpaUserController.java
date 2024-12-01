@@ -1,4 +1,4 @@
-package com.b1a9idps.spring_data_jpa_and_jdbc.presentation.controller;
+package com.b1a9idps.spring_data_jpa_and_jdbc.presentation.controller.jpa;
 
 import java.util.List;
 
@@ -10,17 +10,17 @@ import com.b1a9idps.spring_data_jpa_and_jdbc.application.service.UserService;
 import com.b1a9idps.spring_data_jpa_and_jdbc.presentation.dto.response.UserResponse;
 
 @RestController
-@RequestMapping("/jdbc/users")
-public class JdbcUserController {
+@RequestMapping("/jpa/users")
+public class JpaUserController {
 
     private final UserService userService;
 
-    public JdbcUserController(UserService userService) {
+    public JpaUserController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping
-    public List<UserResponse> findAllJdbc() {
-        return userService.findAllJdbc();
+    public List<UserResponse> findAllJpa() {
+        return userService.findAllJpa();
     }
 }
