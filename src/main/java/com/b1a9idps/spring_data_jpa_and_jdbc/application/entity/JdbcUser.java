@@ -1,5 +1,7 @@
 package com.b1a9idps.spring_data_jpa_and_jdbc.application.entity;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -14,6 +16,10 @@ public class JdbcUser {
     private Integer age;
 
     private Integer shopId;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 
     public Integer getId() {
         return id;
@@ -45,5 +51,21 @@ public class JdbcUser {
 
     public void setShopId(Integer shopId) {
         this.shopId = shopId;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
